@@ -1,7 +1,8 @@
 # Token Efficiency Notes: Portfolio Build Session
 
 This documents the token usage patterns observed during the GitHub portfolio build
-(brownm09, engineering-playbooks, aws-platform-demo) and answers the questions:
+(brownm09, engineering-playbooks, aws-platform-demo, incident-summarizer, ops-scripts)
+and answers the questions:
 
 - What is the average spend for these operations?
 - Why was spend what it was?
@@ -45,8 +46,10 @@ The session produced approximately 5,500+ lines of generated text across:
 |--------|------------------|
 | aws-platform-demo (34 Terraform/YAML/Python files) | ~1,650 |
 | engineering-playbooks (5 markdown documents) | ~1,100 |
-| Conversational responses | ~500 |
-| README files | ~300 |
+| incident-summarizer (21 Python files, README, config) | ~1,750 |
+| ops-scripts (7 Python files, shared lib, config) | ~1,000 |
+| Conversational responses | ~700 |
+| README files | ~450 |
 | This file + usage_report.py | ~250 |
 
 Output tokens cost 5x input tokens on Claude Sonnet 4.6 ($15/M vs $3/M). Sessions
@@ -142,6 +145,53 @@ The aws-platform-demo prod environment duplicates module calls for primary and s
 regions. Using Terraform `for_each` over a region map would reduce the config size and
 the time spent writing the secondary block. It was written as explicit repetition for
 readability, which is a reasonable tradeoff in a demo context but is slower to generate.
+
+---
+
+## Per-Session and Per-Invocation Cost Estimates
+
+### Claude Code sessions (you as the developer)
+
+Model: claude-sonnet-4-6 ($3/M input, $15/M output)
+
+| Session | Estimated input tokens | Estimated output tokens | Estimated cost |
+|---|---|---|---|
+| Session 1: brownm09 + engineering-playbooks + aws-platform-demo | ~35,000 | ~14,000 | ~$0.32 |
+| Session 2: incident-summarizer (context-compacted continuation) | ~24,000 | ~7,000 | ~$0.18 |
+| Session 3: ops-scripts | ~22,000 | ~5,000 | ~$0.14 |
+| **Total (all sessions)** | **~81,000** | **~26,000** | **~$0.64** |
+
+These are estimates from counting output lines and reasoning about context size. Use
+`usage_report.py` with your admin key for actuals.
+
+Session 2 was cheaper than session 1 despite similar output volume because:
+- Context compaction reduced the inherited history to a dense summary (~3,500 tokens)
+  rather than raw conversation (~20,000+ tokens)
+- The skill document (claude-api) dominated input cost for session 2, not the
+  conversation history
+
+### incident-summarizer tool (per invocation, claude-opus-4-6)
+
+Pricing: $5/M input, $25/M output, cache write $6.25/M, cache read $0.50/M
+
+Adaptive thinking tokens are billed as **output** tokens. Actual thinking volume
+varies by incident complexity — more ambiguous data → more thinking.
+
+| Component | Tokens | First call | Cached call |
+|---|---|---|---|
+| System prompt (cache write → read) | ~700 | $0.0044 | $0.00035 |
+| Incident payload (non-cached, varies) | ~1,500-3,000 | $0.008-0.015 | same |
+| Adaptive thinking (output, varies) | ~500-3,000 | $0.013-0.075 | same |
+| IncidentSummary output | ~700 | $0.018 | same |
+| **Total per call estimate** | | **$0.04-0.11** | **$0.035-0.11** |
+
+Thinking is the main cost variable. A well-structured Jira or PagerDuty incident with
+clean fields triggers minimal thinking. A vague plain-text description triggers more.
+To observe actual thinking volume: print `response.usage` from `summarizer.py`.
+
+Cache hits save ~$0.004 per call — meaningful at scale (1,000 calls/month = ~$4 saved),
+negligible for occasional use. The 5-minute ephemeral cache window means consecutive
+calls in a batch pipeline benefit; isolated one-off invocations do not.
 
 ---
 
