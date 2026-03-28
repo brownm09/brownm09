@@ -158,3 +158,167 @@ readability, which is a reasonable tradeoff in a demo context but is slower to g
 The highest-leverage habit change for cost reduction: **use subagents for any code
 generation task producing more than ~200 lines**, so that output does not accumulate
 in the main context window.
+
+---
+
+## How to Realize These Savings
+
+### Fix the gh CLI PATH permanently
+
+One-time setup. Adds `gh` to your system PATH so Claude Code's bash environment finds
+it without a full path lookup.
+
+**Windows (PowerShell, run once):**
+```powershell
+$ghPath = "C:\Program Files\GitHub CLI"
+[Environment]::SetEnvironmentVariable(
+    "Path",
+    [Environment]::GetEnvironmentVariable("Path", "Machine") + ";$ghPath",
+    "Machine"
+)
+```
+Restart your terminal after. Eliminates the diagnostic turns that opened this session.
+
+---
+
+### Trigger parallel subagents explicitly
+
+Claude Code runs subagents in parallel when multiple Agent tool calls appear in a
+single response. The way to get this is to ask for it directly.
+
+**Instead of:**
+> "Build the engineering-playbooks repo."
+> [wait]
+> "Now build aws-platform-demo."
+
+**Say:**
+> "Build engineering-playbooks and aws-platform-demo in parallel. Use a subagent for each."
+
+Claude Code will spawn both agents simultaneously. Wall-clock time drops to roughly
+the duration of the slower task rather than the sum of both.
+
+For code generation specifically, the phrase "use a subagent" or "delegate this to an
+agent" tells Claude to isolate the work. The generated files will not accumulate in
+the main conversation context.
+
+---
+
+### Start a new conversation when context is large
+
+Claude Code compresses old messages automatically, but the pre-compression context
+still costs input tokens. When you finish a logical unit of work (one repo, one set
+of docs), starting a fresh conversation resets the input context to near zero.
+
+The memory system persists across conversations, so nothing is lost. The new session
+picks up project state from the memory files on the first turn.
+
+**Rule of thumb:** start a new conversation after each repo or after any session
+exceeding ~15 substantive turns.
+
+---
+
+### Check cost mid-session
+
+Run `/cost` in Claude Code at any point to see the running token and dollar total
+for the current session. Useful for calibrating when a conversation has grown expensive
+enough to warrant starting fresh.
+
+---
+
+### Prompt caching (direct API use only)
+
+Claude Code handles system prompt caching internally. If you build tooling that calls
+the Anthropic API directly (e.g., the `incident-summarizer` repo), you can add cache
+breakpoints to reduce repeated input costs.
+
+Add `cache_control` to any content block you want cached:
+
+```python
+import anthropic
+
+client = anthropic.Anthropic()
+
+response = client.messages.create(
+    model="claude-sonnet-4-6",
+    max_tokens=1024,
+    system=[
+        {
+            "type": "text",
+            "text": "Your long system prompt here...",
+            "cache_control": {"type": "ephemeral"},  # cache this block
+        }
+    ],
+    messages=[{"role": "user", "content": "User message"}],
+)
+
+# Check what was cached vs billed fresh
+print(response.usage.cache_creation_input_tokens)  # tokens written to cache
+print(response.usage.cache_read_input_tokens)       # tokens read from cache (10% price)
+print(response.usage.input_tokens)                  # uncached tokens (full price)
+```
+
+Cache lifetime is 5 minutes (ephemeral). Use this for:
+- Long system prompts that repeat across calls
+- Reference documents you feed on every request
+- Conversation history beyond the first few turns in a multi-turn loop
+
+Not applicable to Claude Code sessions directly — the harness manages this for you.
+
+---
+
+### Terraform: refactor multi-region with for_each
+
+The current `environments/prod/main.tf` in aws-platform-demo duplicates all module
+calls for primary and secondary regions. Refactoring to `for_each` over a region map
+reduces config size, eliminates copy-paste drift, and would have generated fewer
+output tokens.
+
+Replace the duplicated blocks with:
+
+```hcl
+locals {
+  regions = {
+    primary = {
+      name            = "us-east-1"
+      cidr            = "10.0.0.0/16"
+      azs             = ["us-east-1a", "us-east-1b", "us-east-1c"]
+      public_subnets  = ["10.0.1.0/24", "10.0.2.0/24", "10.0.3.0/24"]
+      private_subnets = ["10.0.10.0/24", "10.0.11.0/24", "10.0.12.0/24"]
+    }
+    secondary = {
+      name            = "us-west-2"
+      cidr            = "10.1.0.0/16"
+      azs             = ["us-west-2a", "us-west-2b", "us-west-2c"]
+      public_subnets  = ["10.1.1.0/24", "10.1.2.0/24", "10.1.3.0/24"]
+      private_subnets = ["10.1.10.0/24", "10.1.11.0/24", "10.1.12.0/24"]
+    }
+  }
+}
+
+module "vpc" {
+  source   = "../../modules/vpc"
+  for_each = local.regions
+
+  name            = "${var.name}-${each.key}"
+  cidr            = each.value.cidr
+  azs             = each.value.azs
+  public_subnets  = each.value.public_subnets
+  private_subnets = each.value.private_subnets
+  tags            = local.common_tags
+}
+```
+
+Repeat the pattern for each module. Reference outputs as `module.vpc["primary"].vpc_id`
+and `module.vpc["secondary"].vpc_id`.
+
+**Limitation:** Terraform `for_each` on modules does not support provider aliases per
+iteration. You cannot dynamically assign `providers = { aws = aws.primary }` based on
+the map key. Workarounds:
+- Use a single provider with `alias` and accept that both regions use the same provider
+  config (works if credentials are global, which they are for most AWS setups)
+- Use Terragrunt, which handles multi-region provider injection more cleanly
+- Keep explicit duplication (current approach) — verbose but unambiguous
+
+The explicit duplication in the current demo is intentional for readability. For a
+production codebase where you might add a third region, the `for_each` pattern plus
+Terragrunt is the right investment.
