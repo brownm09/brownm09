@@ -23,7 +23,7 @@ structure, CI/CD governance, and LaunchDarkly rollout templates. Built to be for
 
 **`aws-platform-demo`** *(coming soon)*
 Terraform-provisioned multi-region AWS architecture with Kubernetes, RDS, and a GitHub Actions
-pipeline. Documents the architectural tradeoffs, not just the configuration.
+pipeline. Documents the configuration and architectural tradeoffs.
 
 **`incident-summarizer`** *(coming soon)*
 A CLI tool using the Anthropic API to generate structured incident summaries from raw postmortem
@@ -48,12 +48,12 @@ Documented and self-contained.
 
 ## Stack
 
-**Infrastructure:** AWS, Terraform, Kubernetes, Docker, Jenkins
-**Languages:** Python, Ruby on Rails, Java, TypeScript, C++
-**Data:** PostgreSQL, DynamoDB, BigQuery
-**Payments:** Stripe, PayPal, Basis Theory
-**Observability:** Datadog, LaunchDarkly, Jellyfish
-**AI:** Claude, Claude Code, GitHub Copilot
+- **Infrastructure:** AWS, Terraform, Kubernetes, Docker, Jenkins
+- **Languages:** Python, Ruby on Rails, Java, TypeScript, C++
+- **Data:** PostgreSQL, DynamoDB, BigQuery
+- **Payments:** Stripe, PayPal, Basis Theory
+- **Observability:** Datadog, LaunchDarkly, Jellyfish
+- **AI:** Claude, Claude Code, GitHub Copilot
 
 ---
 
