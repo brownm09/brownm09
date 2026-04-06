@@ -17,12 +17,16 @@ changes rather than one-off experiments.
 
 ## What's Here
 
-**[`engineering-playbooks`](https://github.com/brownm09/engineering-playbooks)**
-Systematized frameworks from real work: DR fire drills, on-call restructuring, PCI gap analysis
-structure, CI/CD governance, and LaunchDarkly rollout templates. Built to be forkable and adapted.
+### Projects
 
 **[`lifting-logbook`](https://github.com/brownm09/lifting-logbook)**
 Training log with AI-driven recommendations based on performance, sleep, and nutrition.
+
+### Playbooks
+
+**[`engineering-playbooks`](https://github.com/brownm09/engineering-playbooks)**
+Systematized frameworks from real work: DR fire drills, on-call restructuring, PCI gap analysis
+structure, CI/CD governance, and LaunchDarkly rollout templates. Built to be forkable and adapted.
 
 ---
 
