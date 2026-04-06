@@ -19,22 +19,16 @@ changes rather than one-off experiments.
 
 ### Projects
 
-**[`lifting-logbook`](https://github.com/brownm09/lifting-logbook)**
-Training log with AI-driven recommendations based on performance, sleep, and nutrition.
+| Repo | Status | Description |
+|---|---|---|
+| [`lifting-logbook`](https://github.com/brownm09/lifting-logbook) | Live | Training log with AI-driven recommendations based on performance, sleep, and nutrition. |
 
 ### Playbooks
 
-**[`engineering-playbooks`](https://github.com/brownm09/engineering-playbooks)**
-Systematized frameworks from real work: DR fire drills, on-call restructuring, PCI gap analysis
-structure, CI/CD governance, and LaunchDarkly rollout templates. Built to be forkable and adapted.
-
----
-
-## Coming Soon
-
-**`leadership-playbooks`**
-Management tools and procedures for engineering leaders: hiring rubrics, performance frameworks,
-org design, and 1:1 structures. Companion to engineering-playbooks.
+| Repo | Status | Description |
+|---|---|---|
+| [`engineering-playbooks`](https://github.com/brownm09/engineering-playbooks) | Live | Systematized frameworks from real work: DR fire drills, on-call restructuring, PCI gap analysis, CI/CD governance, and LaunchDarkly rollout templates. |
+| `leadership-playbooks` | Planned | Management tools and procedures for engineering leaders: hiring rubrics, performance frameworks, org design, and 1:1 structures. |
 
 ---
 
