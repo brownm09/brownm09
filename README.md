@@ -17,21 +17,20 @@ changes rather than one-off experiments.
 
 ## What's Here
 
-**`engineering-playbooks`** *(coming soon)*
+**[`engineering-playbooks`](https://github.com/brownm09/engineering-playbooks)**
 Systematized frameworks from real work: DR fire drills, on-call restructuring, PCI gap analysis
 structure, CI/CD governance, and LaunchDarkly rollout templates. Built to be forkable and adapted.
 
-**`aws-platform-demo`** *(coming soon)*
-Terraform-provisioned multi-region AWS architecture with Kubernetes, RDS, and a GitHub Actions
-pipeline. Documents the configuration and architectural tradeoffs.
+**[`lifting-logbook`](https://github.com/brownm09/lifting-logbook)**
+Training log with AI-driven recommendations based on performance, sleep, and nutrition.
 
-**`incident-summarizer`** *(coming soon)*
-A CLI tool using the Anthropic API to generate structured incident summaries from raw postmortem
-notes. Practical example of AI integration into engineering ops workflows.
+---
 
-**`ops-scripts`** *(coming soon)*
-Python utilities for AWS and Datadog: metric aggregation, alerting hygiene, cost reporting.
-Documented and self-contained.
+## Coming Soon
+
+**`leadership-playbooks`**
+Management tools and procedures for engineering leaders: hiring rubrics, performance frameworks,
+org design, and 1:1 structures. Companion to engineering-playbooks.
 
 ---
 
