@@ -21,6 +21,7 @@ changes rather than one-off experiments.
 
 | Repo | Status | Description |
 |---|---|---|
+| [`dev-env`](https://github.com/brownm09/dev-env) | Active | Cross-device development environment: Claude Code global config, hooks, custom skills (`/propose`, `/journal-compose`, `/research`), and document templates. |
 | [`lifting-logbook`](https://github.com/brownm09/lifting-logbook) | In Progress | Training log with AI-driven recommendations based on performance, sleep, and nutrition. |
 
 ### Playbooks
