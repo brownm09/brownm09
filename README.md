@@ -29,7 +29,7 @@ changes rather than one-off experiments.
 | Repo | Status | Description |
 |---|---|---|
 | [`engineering-playbooks`](https://github.com/brownm09/engineering-playbooks) | In Progress | Systematized frameworks from real work: DR fire drills, on-call restructuring, PCI gap analysis, CI/CD governance, and LaunchDarkly rollout templates. |
-| `leadership-playbooks` | Planned | Management tools and procedures for engineering leaders: hiring rubrics, performance frameworks, org design, and 1:1 structures. |
+| [`leadership-playbooks`](https://github.com/brownm09/leadership-playbooks) | In Progress | Leadership process playbooks: PRD lifecycle management, AI documentation standards, org design, and stakeholder communication frameworks. |
 
 ---
 
