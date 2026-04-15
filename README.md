@@ -35,9 +35,10 @@ changes rather than one-off experiments.
 
 ## Background
 
-- **Current:** VP of Engineering, Community Tech Alliance
-- **Previously:** Senior Engineering Manager, ActBlue Technical Services; Senior Associate
-  Software Engineering, Capital One; Team Lead, Raytheon / NASA EED
+- **Seeking:** Engineering leadership roles
+- **Previously:** VP of Engineering, Community Tech Alliance; Senior Engineering Manager,
+  ActBlue Technical Services; Senior Associate Software Engineering, Capital One; Team Lead,
+  Raytheon / NASA EED
 - **Education:** M.S. Computer Science, Colorado Technical University
 - **Certifications:** AWS Solutions Architect – Associate, Platform Engineering Fundamentals,
   Six Sigma Specialist
