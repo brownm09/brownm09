@@ -1,6 +1,6 @@
 # Mike Brown
 
-Engineering leader building platform and developer experience infrastructure in regulated,
+Engineering leader building platform and developer-experience infrastructure in regulated,
 high-volume environments. At ActBlue, the teams I lead process over one million transactions
 per day.
 
