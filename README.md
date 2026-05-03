@@ -1,17 +1,15 @@
 # Mike Brown
 
-Engineering leader focused on regulated, high-volume platforms — payments, compliance,
-infrastructure modernization.
+Engineering leader building platform and developer-experience infrastructure in regulated,
+high-volume environments. At ActBlue, the teams I lead process over one million transactions
+per day.
 
-I've spent the last decade building and scaling engineering organizations across government,
-fintech, and nonprofit environments: leading teams through PCI-DSS remediation, decomposing
-monolithic architectures, and establishing the CI/CD and observability practices that make those
-migrations survivable. Most recently at ActBlue, where the platform processes over one million
-transactions per day.
+Across government, fintech, and nonprofit contexts, the work has been consistent: reduce the
+friction that slows engineering teams down. That has meant PCI-DSS remediation, monolith
+decomposition, and the CI/CD and observability foundations that make large migrations survivable.
 
-My current focus is on how AI tooling (Claude Code, GitHub Copilot) changes the leverage
-available to engineering teams — and how to roll it out in a way that produces durable workflow
-changes rather than one-off experiments.
+Current focus: using Claude Code and GitHub Copilot to shift the leverage available to
+engineering teams. The goal is durable workflow change, not one-off experiments.
 
 ---
 
