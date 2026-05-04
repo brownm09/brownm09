@@ -1,15 +1,10 @@
 # Mike Brown
 
-Engineering leader building platform and developer-experience infrastructure in regulated,
-high-volume environments. At ActBlue, the teams I lead process over one million transactions
-per day.
+As an engineering leader, I calibrate and streamline business outcomes at scale by socializing precise communication and conscientious stewardship. Daily practice means removing friction: unclear ownership, vague requirements, architectural divergence, observability gaps. I've consistently focused on platform and developer experience: they determine maximum organizational speed.
 
-Across government, fintech, and nonprofit contexts, the work has been consistent: reduce the
-friction that slows engineering teams down. That has meant PCI-DSS remediation, monolith
-decomposition, and the CI/CD and observability foundations that make large migrations survivable.
+My career centers regulated, high-volume environments. At ActBlue, I led platform teams responsible for a contribution processing system handling over one million transactions per day, and proposed and owned deprecating the legacy PCI environment. As VP of Engineering at Community Tech Alliance, I owned full engineering investment strategy on GCP. I surfaced a foreground/background architectural split degrading the analytics product before delivery broke. I have managed managers continuously across both organizations for nearly two years.
 
-Current focus: using Claude Code and GitHub Copilot to shift the leverage available to
-engineering teams. The goal is durable workflow change, not one-off experiments.
+Right now, I am working through what Claude Code and GitHub Copilot actually change about how engineering teams operate: which workflows hold up under daily AI-assisted use, and which collapse. The other question: how to implement controls and preserve judgment at scale. Experiment in progress.
 
 ---
 
@@ -33,24 +28,21 @@ engineering teams. The goal is durable workflow change, not one-off experiments.
 ## Background
 
 - **Seeking:** Engineering leadership roles
-- **Previously:** VP of Engineering, Community Tech Alliance; Senior Engineering Manager,
-  ActBlue Technical Services; Senior Associate Software Engineering, Capital One; Team Lead,
-  Raytheon / NASA EED
+- **Previously:** VP of Engineering, Community Tech Alliance; Senior Engineering Manager, ActBlue Technical Services; Senior Associate Software Engineering, Capital One; Team Lead, Raytheon / NASA EED
 - **Education:** M.S. Computer Science, Colorado Technical University
-- **Certifications:** AWS Solutions Architect – Associate, Platform Engineering Fundamentals,
-  Six Sigma Specialist
+- **Certifications:** AWS Solutions Architect – Associate, Platform Engineering Fundamentals, Six Sigma Specialist
 
 ---
 
 ## Stack
 
-- **Infrastructure:** AWS, Terraform, Kubernetes, Docker, Jenkins
-- **Languages:** Python, Ruby on Rails, Java, TypeScript, C++
-- **Data:** PostgreSQL, DynamoDB, BigQuery
+- **Infrastructure:** AWS, GCP, Terraform, Kubernetes, Docker, Jenkins
+- **Languages:** Python, Ruby on Rails, Django, Java, TypeScript, C++
+- **Data:** PostgreSQL, DynamoDB, BigQuery, Airflow
 - **Payments:** Stripe, PayPal, Basis Theory
 - **Observability:** Datadog, LaunchDarkly, Jellyfish
 - **AI:** Claude, Claude Code, GitHub Copilot
 
 ---
 
-📍 Kensington, MD &nbsp;|&nbsp; [LinkedIn](https://linkedin.com/in/brownm09) &nbsp;|&nbsp; brownm2350@gmail.com
+📍 Kensington, MD | [LinkedIn](https://linkedin.com/in/brownm09) | brownm2350@gmail.com
