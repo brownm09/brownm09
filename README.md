@@ -14,7 +14,7 @@ Right now, I am working through what Claude Code and GitHub Copilot actually cha
 
 | Repo | Status | Description |
 |---|---|---|
-| [`dev-env`](https://github.com/brownm09/dev-env) | Active | Cross-device development environment: Claude Code global config, hooks, custom skills (`/propose`, `/journal-compose`, `/research`), and document templates. |
+| [`dev-env`](https://github.com/brownm09/dev-env) | Active | The working infrastructure behind the AI adoption experiment: global Claude Code config, workflow automation hooks, custom skills, and scheduled routines. Policy-as-code for a single-operator development environment. |
 | [`lifting-logbook`](https://github.com/brownm09/lifting-logbook) | In Progress | Training log with AI-driven recommendations based on performance, sleep, and nutrition. |
 
 ### Playbooks
