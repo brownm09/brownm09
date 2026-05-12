@@ -21,7 +21,7 @@ Right now, I am working through what Claude Code and GitHub Copilot actually cha
 
 | Repo | Status | Description |
 |---|---|---|
-| [`tech-leadership-playbooks`](https://github.com/brownm09/tech-leadership-playbooks) | In Progress | Frameworks spanning engineering operations and leadership process: DR fire drills, on-call restructuring, PCI gap analysis, CI/CD governance, LaunchDarkly rollout templates, org design, career ladders, executive communication, program management, and AI adoption. |
+| [`tech-leadership-reference`](https://github.com/brownm09/tech-leadership-reference) | In Progress | Operational and leadership frameworks derived from production engineering work: incident response, DR, CI/CD governance, PCI-DSS compliance, org design, career ladders, program management, and AI adoption. |
 
 ---
 
