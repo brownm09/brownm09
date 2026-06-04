@@ -2,7 +2,7 @@
 
 As an engineering leader, I calibrate and streamline business outcomes at scale by socializing precise communication and conscientious stewardship. Daily practice means removing friction: unclear ownership, vague requirements, architectural divergence, observability gaps. I've consistently focused on platform and developer experience: they determine maximum organizational speed.
 
-My career centers regulated, high-volume environments. At ActBlue, I led platform teams responsible for a contribution processing system handling over one million transactions per day, and proposed and owned deprecating the legacy PCI environment. As VP of Engineering at Community Tech Alliance, I owned full engineering investment strategy on GCP. I surfaced a foreground/background architectural split degrading the analytics product before delivery broke. I have managed managers continuously across both organizations for nearly two years.
+My career centers regulated, high-volume environments. At ActBlue, I led platform teams responsible for a contribution processing system handling over one million transactions per day, and proposed and owned deprecating the legacy PCI environment. As VP of Engineering at Community Tech Alliance, I owned full engineering investment strategy on GCP. I have managed managers continuously across both organizations for nearly two years.
 
 Right now, I am working through what Claude Code and GitHub Copilot actually change about how engineering teams operate: which workflows hold up under daily AI-assisted use, and which collapse. The other question: how to implement controls and preserve judgment at scale. Experiment in progress.
 
