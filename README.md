@@ -27,7 +27,7 @@ Right now, I am working through what Claude Code and GitHub Copilot actually cha
 
 ## Background
 
-- **Seeking:** Engineering leadership roles
+- **Seeking:** Engineering leadership, technical program management, or chief of staff roles
 - **Previously:** VP of Engineering, Community Tech Alliance; Senior Engineering Manager, ActBlue Technical Services; Senior Associate Software Engineering, Capital One; Team Lead, Raytheon / NASA EED
 - **Education:** M.S. Computer Science, Colorado Technical University
 - **Certifications:** AWS Solutions Architect – Associate, Platform Engineering Fundamentals, Six Sigma Specialist
